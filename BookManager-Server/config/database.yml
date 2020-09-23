@@ -1,0 +1,20 @@
+default: &default
+  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: book_manager_mysql_develpment
+
+test:
+  <<: *default
+  database: book_manager_mysql_test
+
+production:
+  <<: *default
+  database: book_manager_mysql_production
